@@ -33,6 +33,7 @@ for i in range(len(x1)):
     chd1 = np.append(chd1, (random.random()+1.5)/2.0)
 
 titlestring =  "chd vs. " + attributeNames[x]
+plt.figure()
 plt.title(titlestring)
 
 plt.scatter(chd0, x0, c='g', s=50, alpha=0.5, label="chd negative")
@@ -44,3 +45,12 @@ plt.ylabel(attributeNames[x])
 plt.xticks([0,1])
 plt.show()
 
+
+plt.figure()
+plt.boxplot([x0,x1])
+title = "Boxplot showing chd"
+plt.title(title)
+plt.xticks((1,2),("chd positive","cdh negative"))
+plt.ylabel("Age")
+plt.savefig(title)
+plt.show()
