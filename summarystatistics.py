@@ -1,9 +1,12 @@
 # summary statistics
 
 import dataextraction
+import matplotlib.pyplot as plt
+import statistics
+
 X = dataextraction.X
 N,M = X.shape
-
+attributeNames = dataextraction.attributeNames
 # 0: sbp, 1: tobacco, 2: ldl, 3: adiposity, 4: famhist, 5: typea
 # 6: obesity, 7: alcohol, 8: age, 9: chd
 
@@ -48,4 +51,21 @@ print("tt",tt)
 print("tf",tf)
 print("ft",ft)
 
-
+# table 3
+print("table 3:\n")
+for i in [0,1,2,3,6,7,8]:
+    print("")
+    print("Mean of " + attributeNames[i] + ":" , X[:,i].mean())
+    print("Median of " + attributeNames[i] + ":", statistics.median(X[:,i]))
+    print("Min. of " + attributeNames[i] + ":", min(X[:,i]))
+    print("Max. of " + attributeNames[i] + ":", max(X[:,i]))
+    print("Std. of " + attributeNames[i] + ":", statistics.stdev(X[:,i]))
+    
+    
+    
+    
+    
+    
+    
+    
+    
