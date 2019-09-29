@@ -10,6 +10,7 @@ from scipy.linalg import svd
 X = dataextraction.X
 N, M = X.shape
 
+# standardization
 Y = X - np.ones((N,1))*X.mean(axis=0)
 Y[:,4] = X[:,4]
 Y[:,9] = X[:,9]
@@ -39,3 +40,4 @@ plt.legend()
 plt.grid()
 plt.show()
 print(np.ones(len(rho)))
+
