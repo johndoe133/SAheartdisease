@@ -45,12 +45,49 @@ plt.ylabel(attributeNames[x])
 plt.xticks([0,1])
 plt.show()
 
+# 7 alcohol
+x2 = np.asarray(df0[attributeNames[7]])
+x3 = np.asarray(df1[attributeNames[7]])
 
-plt.figure()
+# 6 obesity
+x4 = np.asarray(df0[attributeNames[6]])
+x5 = np.asarray(df1[attributeNames[6]])
+
+# 1 tobacco
+x6 = np.asarray(df0[attributeNames[1]])
+x7 = np.asarray(df1[attributeNames[1]])
+
+
+plt.figure(figsize=(10,8))
+plt.subplot(2,2,1)
 plt.boxplot([x0,x1])
-title = "Boxplot showing chd"
+title = "chd vs age"
 plt.title(title)
-plt.xticks((1,2),("chd positive","cdh negative"))
+plt.xticks((1,2),("chd negative","cdh positive"))
 plt.ylabel("Age")
-plt.savefig(title)
+
+plt.subplot(2,2,2)
+plt.boxplot([x2,x3])
+title = "chd vs alcohol consumption"
+plt.title(title)
+plt.xticks((1,2),("chd negative","cdh positive"))
+plt.ylabel("Alcohol")
+
+plt.subplot(2,2,3)
+plt.boxplot([x4,x5])
+title = "chd vs obesity"
+plt.title(title)
+plt.xticks((1,2),("chd negative","cdh positive"))
+plt.ylabel("Obesity")
+
+plt.subplot(2,2,4)
+plt.boxplot([x6,x7])
+title = "chd vs tobacco"
+plt.title(title)
+plt.xticks((1,2),("chd negative","cdh positive"))
+plt.ylabel("tobacco")
+
+plt.tight_layout()
+plt.savefig("boxplot of chd vs 4 attri.")
+
 plt.show()
