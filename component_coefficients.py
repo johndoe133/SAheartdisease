@@ -18,7 +18,7 @@ U,S,Vh = svd(Y,full_matrices=False)
 V=Vh.T
 
 
-pcs = [0,1,2,3]
+pcs = [0,1,2]
 legendStrs = ['PC'+str(e+1) for e in pcs]
 c = ['r','g','b']
 bw = .2
