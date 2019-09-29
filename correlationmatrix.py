@@ -1,10 +1,11 @@
 import numpy as np
-from dataextraction import (df, X)
+from dataextraction import (df, X, attributeNames)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 df = df.drop("names", axis=1)
 corr = df.corr()
+print(corr)
 
 plt.matshow(corr)
 plt.xticks(range(df.shape[1]), df.columns, fontsize=14, rotation=30)

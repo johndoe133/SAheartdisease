@@ -11,8 +11,13 @@ X = dataextraction.X
 N, M = X.shape
 
 Y = X - np.ones((N,1))*X.mean(axis=0)
+# for r in range(len(Y)):
+#     for c in range(len(Y[r])):
+#         Y[r][c] /= np.std(Y[:,c])
 Y[:,4] = X[:,4]
 Y[:,9] = X[:,9]
+
+
 
 # PCA by computing SVD of Y
 U,S,V = svd(Y,full_matrices=False)
@@ -24,7 +29,7 @@ cumulrho = [] #The cumulative error explained by the PCA
 for i in range(len(rho)):
     cumulrho += [np.sum(rho[0:i])]
 
-threshold = 0.9
+threshold = 0.85
 
 plt.scatter(x=np.arange(len(rho)), y=rho, c='blue', label='variance')
 plt.scatter(x=np.arange(len(rho)), y=cumulrho, c='green', label='cumulative variance')
@@ -38,4 +43,3 @@ plt.yticks(np.arange(11)/10.0)
 plt.legend()
 plt.grid()
 plt.show()
-print(np.ones(len(rho)))
